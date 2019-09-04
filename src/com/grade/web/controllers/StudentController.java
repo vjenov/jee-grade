@@ -11,33 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bank.web.pool.Constants;
 import com.grade.web.domains.GradeBean;
+import com.grade.web.domains.StudentBean;
 import com.grade.web.serviceImpls.GradeServiceImpl;
+import com.grade.web.serviceImpls.StudentServiceImpl;
 import com.grade.web.services.GradeService;
+import com.grade.web.services.StudentService;
 
-@WebServlet("/grade.do")
-public class GradeController extends HttpServlet {
+@WebServlet("/student.do")
+public class StudentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher(String.format(Constants.VIEW_PATH,"student",request.getParameter("dest"))).forward(request, response);
 		switch(request.getParameter("action")) {
-		case "join" :
+		case "move" :
+			request.getRequestDispatcher(String.format(Constants.VIEW_PATH,"student",request.getParameter("dest"))).forward(request, response);
+			break;
+		case "register" :
+			/*
 		GradeService service = new GradeServiceImpl();
 		String ssn = request.getParameter("ssn");
 		String name = request.getParameter("name");
-		String kor = request.getParameter("kor");
-		String eng = request.getParameter("eng");
-		String mat = request.getParameter("mat");
-		String soc = request.getParameter("soc");
 		GradeBean param = new GradeBean();
-		param.setKor(kor);
-		param.setEng(eng);
-		param.setMat(mat);
-		param.setSoc(soc);
 		service.createGrade(param);
+		*/
+		request.getRequestDispatcher(String.format(Constants.VIEW_PATH,"student","login")).forward(request, response);
+		break;
 		case "login" :
-		service = new GradeServiceImpl();
-		name = request.getParameter("name");
+		StudentService sService = new StudentServiceImpl();
+		String pw = request.getParameter("pw");
+		String hakbun = request.getParameter("hakbun");
+		StudentBean student = new StudentBean();
+		sService.createHakBun(student);
+		break;
 		}
 	}
 

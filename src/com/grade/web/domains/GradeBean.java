@@ -3,40 +3,8 @@ package com.grade.web.domains;
 import java.io.Serializable;
 
 public class GradeBean implements Serializable{
-	private static final long serialVersionHD = 1L;
-	private String hakbun, ssn, name, kor, eng, mat, soc;
-	private int total, avr;
-	
-	public String getHakbun() {
-		return hakbun;
-	}
-	public int getTotal() {
-		return total;
-	}
-	public void setTotal(int total) {
-		this.total = total;
-	}
-	public int getAvr() {
-		return avr;
-	}
-	public void setAvr(int avr) {
-		this.avr = avr;
-	}
-	public void setHakbun(String hakbun) {
-		this.hakbun = hakbun;
-	}
-	public String getSsn() {
-		return ssn;
-	}
-	public void setSsn(String ssn) {
-		this.ssn = ssn;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	private static final long serialVersionUID = 1L;
+	private String kor, eng, mat, soc;
 	public String getKor() {
 		return kor;
 	}
@@ -61,5 +29,5 @@ public class GradeBean implements Serializable{
 	public void setSoc(String soc) {
 		this.soc = soc;
 	}
-	
 }
+	
